@@ -32,18 +32,23 @@ userSchema.pre('save', (next)=>{
 
 
 userSchema.pre(['update', 'findOneAndUpdate', 'updateOne'], (next)=>{
+    //This getUpdate function will get the datas of user you want to update
     const update = this.getUpdate();
 
+
+    //Deleting this id because we don't want to delete the user IDs
     delete update._id;
     delete update.id;
 
+    //this.updatedOn will have the updated date stored in the current instance
     this.updatedOn = new Date();
 
     next();
 });
 
-
 const UserModel = model("User", userSchema);
 
 module.exports = UserModel;
+
+
 
