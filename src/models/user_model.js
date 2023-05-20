@@ -17,7 +17,7 @@ const userSchema = new Schema({
     createdOn: { type: Date }
 });
 
-userSchema.pre('save', (next)=>{
+userSchema.pre('save', function (next) {
     this.id = uuid.v1();
     this.updatedOn = new Date();
     this.createdOn = new Date();

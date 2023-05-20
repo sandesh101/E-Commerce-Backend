@@ -8,6 +8,9 @@ const morgan = require("morgan"); //=> Morgan is used to keep the logs of reques
 const cors = require("cors"); //=> Middleware 
 const mongoose = require("mongoose");
 
+//FOR ROUTE MIDDLEWARE  
+const UserRoutes = require("./routes/user_routes");
+
 
 const app = express();
 
@@ -23,6 +26,9 @@ app.use(morgan('dev'));
 app.use(cors());
 
 
+//Using ROUTE Middleware
+app.use("/api", UserRoutes);
+
 //Connecting to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/ecommerce").then(()=>{
     console.log("Database Connection Successfull");
@@ -33,7 +39,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/ecommerce").then(()=>{
 
 //Defining HOME Route
 app.get("/", (req,res)=>{
-    res.send("Hello world");
+    res.send("Hello world || Ecommerce-Backend");
 })
 
 
