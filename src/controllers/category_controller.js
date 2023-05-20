@@ -19,7 +19,22 @@ const CategoryController = {
         }catch(e){
             res.json({ success: false, message: e.toString() })
         }
+    },
+
+    fetchCategoryById: async function(req, res){
+        try{
+            const categoryId = req.params.id;
+            const foundCategory = await CategoryModel.findById(categoryId);
+            if(!foundCategory){
+                res.json({ success: false, message: "Category Not Found" })
+            }
+
+            res.json({ success: true, data: foundCategory })    
+        }catch(e){
+            res.json({ success: false, message: e.toString() })
+        }
     }
+
 }
 
 module.exports = CategoryController;
