@@ -21,7 +21,7 @@ cartSchema.pre('save', function (next) {
 });
 
 
-cartSchema.pre(['update', 'findOneAndUpdate', 'updateOne'], (next)=>{
+cartSchema.pre(['update', 'findOneAndUpdate', 'updateOne'], function(next){
     //This getUpdate function will get the datas of user you want to update
     const update = this.getUpdate();
 

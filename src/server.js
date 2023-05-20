@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 const UserRoutes = require("./routes/user_routes");
 const CategoryRoutes = require("./routes/category_routes");
 const ProductRoutes = require("./routes/product_routes");
+const CartRoutes = require("./routes/cart_routes");
 
 
 const app = express();
@@ -32,6 +33,8 @@ app.use(cors());
 app.use("/api", UserRoutes);
 app.use("/api/category", CategoryRoutes);
 app.use("/api/products", ProductRoutes);
+app.use("/api/cart", CartRoutes);
+
 
 //Connecting to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/ecommerce").then(()=>{
