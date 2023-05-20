@@ -11,6 +11,7 @@ const mongoose = require("mongoose");
 //FOR ROUTE MIDDLEWARE  
 const UserRoutes = require("./routes/user_routes");
 const CategoryRoutes = require("./routes/category_routes");
+const ProductRoutes = require("./routes/product_routes");
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(cors());
 //Using ROUTE Middleware
 app.use("/api", UserRoutes);
 app.use("/api/category", CategoryRoutes);
+app.use("/api/products", ProductRoutes);
 
 //Connecting to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/ecommerce").then(()=>{
