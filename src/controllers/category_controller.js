@@ -12,10 +12,10 @@ const CategoryController = {
         }
     },
 
-    fetchAllCategory : async function(req, res){
+    fetchAllCategory: async function(req, res){
         try{
-            const allCategory = CategoryModel.find();
-            res.json({ success: true, data: allCategory})    
+            const allCategory = await CategoryModel.find();
+            res.json({ success: true, data: allCategory })    
         }catch(e){
             res.json({ success: false, message: e.toString() })
         }
