@@ -2,7 +2,9 @@ const {Schema , mongoose, model} = require('mongoose');
 
 const categorySchema = new Schema({
     title : { type: String, required: true },
-    description: { type: String, default: "" }
+    description: { type: String, default: "" },
+    updatedOn: { type: Date },
+    createdOn: { type: Date }
 });
 
 
