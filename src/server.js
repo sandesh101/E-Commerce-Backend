@@ -13,6 +13,7 @@ const UserRoutes = require("./routes/user_routes");
 const CategoryRoutes = require("./routes/category_routes");
 const ProductRoutes = require("./routes/product_routes");
 const CartRoutes = require("./routes/cart_routes");
+const OrderRoutes = require("./routes/order_route");
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use("/api", UserRoutes);
 app.use("/api/category", CategoryRoutes);
 app.use("/api/products", ProductRoutes);
 app.use("/api/cart", CartRoutes);
+app.use('/api/order', OrderRoutes);
 
 
 //Connecting to MongoDB
